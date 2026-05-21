@@ -19,4 +19,18 @@ async function getItemsByCategory(req, res) {
   }
 }
 
-module.exports = { getItems, getItemsByCategory }
+function addItemForm(req, res){
+  res.render("addItem")
+}
+
+async function addItem(req, res) {
+  try {
+    const {name, description, price, quantity, category_id} = req.body
+    await pool.query("INSERT INTO items (name, description, price, quantity, category_id) VALUES ($1, $2, $3, $4, $5)", [name, description, price, quantity, category_id])
+    res.redirect("/")
+  } catch(err){
+     console.error("Something went wrong", err)
+  }
+}
+
+module.exports = { getItems, getItemsByCategory, addItemForm, addItem }
