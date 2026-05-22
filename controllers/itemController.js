@@ -33,4 +33,16 @@ async function addItem(req, res) {
   }
 }
 
-module.exports = { getItems, getItemsByCategory, addItemForm, addItem }
+async function deleteItem(req, res) {
+  try{
+    const {id} = req.params
+    await pool.query("DELETE FROM items WHERE id = $1", [id])
+    res.redirect("/")
+
+  } catch(err) {
+    console.log("Something went wrong", err)
+  }
+  
+}
+
+module.exports = { getItems, getItemsByCategory, addItemForm, addItem, deleteItem }
