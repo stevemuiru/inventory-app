@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/style.css">
+    <title>Categories</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navlist">
+            <li class="subheading">
+                <h2>Making Sense Computers</h2>
+            </li>
+            
+
+            <li class="nav-items">
+                <ul class="nav-links">
+                    <li class="nav-item">Dashboard</li>
+                    <li class="nav-item">Laptops</li>
+                    <li class="nav-item">Printers</li>
+                    <li class="nav-item">CCtv cameras</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <h1><%= category[0].name %></h1>
+
+    <% category.forEach(item => { %>
+      <p><%= item.name %></p>
+      <p><%= item.description %></p>
+      <p><%= item.price %></p>
+      <p><%= item.quantity %></p>
+      <form action="/items/<%= item.id %>/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    <% }) %> 
+    <a href="/categories/<%= category[0].category_id %>/add">Add Item</a>
+</body>
+</html>
