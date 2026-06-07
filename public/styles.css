@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+}
+
+
+nav {
+  background: #1a56db;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links li:hover {
+  color: white;
+}
+
+
+.hero {
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 0.5px solid #e2e8f0;
+}
+
+.hero h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: #64748b;
+  font-size: 15px;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border: 0.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cards a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card:hover {
+  border-color: #1a56db;
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 1rem;
+  color: #1a56db;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.card-count {
+  margin-top: 1rem;
+  background: #eff6ff;
+  color: #1a56db;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.category-header {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-header h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.add-btn {
+  background: #1a56db;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #1648c0;
+}
+
+.items-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: white;
+  border: 0.5px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.items-table th {
+  background: #f8fafc;
+  padding: 12px 1.5rem;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  border-bottom: 0.5px solid #e2e8f0;
+}
+
+.items-table td {
+  padding: 12px 1.5rem;
+  font-size: 14px;
+  border-bottom: 0.5px solid #e2e8f0;
+  color: #1a202c;
+}
+
+.items-table tr:last-child td {
+  border-bottom: none;
+}
+
+.items-table tr:hover td {
+  background: #f8fafc;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+
+
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: white;
+  border: 0.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.form-container h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #1a202c;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 0.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a202c;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1a56db;
+}
+
+.form-action {
+  margin-top: 1.5rem;
+}
+
+.form-action button {
+  width: 100%;
+  background: #1a56db;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-action button:hover {
+  background: #1648c0;
+}

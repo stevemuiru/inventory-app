@@ -1,4 +1,4 @@
-const pool = require("./pool")
+const pool = require("../db/pool")
 
 async function getItems(req, res) {
  try {
@@ -12,8 +12,10 @@ async function getItems(req, res) {
 async function getItemsByCategory(req, res) {
   try {
     const {id} = req.params
+    console.log("Category id:", id)
     const {rows} = await pool.query("SELECT * FROM items JOIN categories ON items.category_id = categories.id WHERE items.category_id = $1", [id])
-     res.render("index", {category: rows})
+    console.log("Rows returned:", rows)
+    res.render("category", {category: rows})
   } catch(err) {
      console.error("Something went wrong", err)
   }
