@@ -5,9 +5,9 @@ const { getItems, getItemsByCategory, addItemForm, addItem, deleteItem } = requi
 
 router.get('/', getItems)
 router.get('/categories/:id', getItemsByCategory)
-router.get('/items/add', addItemForm )
+router.get('/categories/:id/add', addItemForm)
 router.post('/categories/:id/add', addItem)
-router.delete('/items/:id/delete', deleteItem)
+router.post('/items/:id/delete', deleteItem)
 
 
 
