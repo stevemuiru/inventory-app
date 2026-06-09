@@ -7,6 +7,7 @@ router.get('/', getItems)
 router.get('/categories/:id', getItemsByCategory)
 router.get('/categories/:id/add', addItemForm)
 router.post('/categories/:id/add', addItem)
+router.post('/categories/:id/edit', editItem)
 router.post('/items/:id/delete', deleteItem)
 
 

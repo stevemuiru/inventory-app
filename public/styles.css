@@ -184,7 +184,7 @@ nav {
 }
 
 .delete-btn {
-  background: #fee2e2;
+  background: #fecaca;
   color: #dc2626;
   border: none;
   padding: 6px 14px;
@@ -197,6 +197,7 @@ nav {
 .delete-btn:hover {
   background: #fecaca;
 }
+
 
 
 .form-container {
