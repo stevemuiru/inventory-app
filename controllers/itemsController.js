@@ -36,26 +36,15 @@ async function addItem(req, res) {
   }
 }
 
-async function editItem(req, res) {
-  try{
-   const {id} = req.params
-   await pool.query("UPDATE items SET (name, description, price, quantity, category_id) VALUES ($1, $2, $3, $4, $5)", [name, description, price, quantity, category_id])
-   res.redirect("/")
-  } catch(err) {
-    console.error("Something went wrong", err)
-  }
-}
-
 async function deleteItem(req, res) {
   try{
     const {id} = req.params
+    console.log("Deleting item with id:", id)
     await pool.query("DELETE FROM items WHERE id = $1", [id])
     res.redirect("/")
-
   } catch(err) {
     console.log("Something went wrong", err)
   }
-  
 }
 
 module.exports = { getItems, getItemsByCategory, addItemForm, addItem, deleteItem }
