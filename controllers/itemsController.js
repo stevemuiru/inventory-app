@@ -12,9 +12,13 @@ async function getItems(req, res) {
 async function getItemsByCategory(req, res) {
   try {
     const {id} = req.params
-    console.log("Category id:", id)
-    const {rows} = await pool.query("SELECT * FROM items JOIN categories ON items.category_id = categories.id WHERE items.category_id = $1", [id])
-    console.log("Rows returned:", rows)
+    const {rows} = await pool.query(`
+      SELECT items.id, items.name, items.description, items.price, items.quantity, 
+             items.category_id, categories.name AS category_name
+      FROM items 
+      JOIN categories ON items.category_id = categories.id 
+      WHERE items.category_id = $1
+    `, [id])
     res.render("category", {category: rows})
   } catch(err) {
      console.error("Something went wrong", err)
@@ -39,9 +43,9 @@ async function addItem(req, res) {
 async function deleteItem(req, res) {
   try{
     const {id} = req.params
-    console.log("Deleting item with id:", id)
-    await pool.query("DELETE FROM items WHERE id = $1", [id])
-    res.redirect("/")
+    const {category_id} = req.body
+    await pool.query("UPDATE items SET quantity = quantity - 1 WHERE id = $1", [id])
+    res.redirect(`/categories/${category_id}`)
   } catch(err) {
     console.log("Something went wrong", err)
   }

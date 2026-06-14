@@ -24,22 +24,22 @@
 
         <div class="form-group">
             <label for="item-name">Item:</label>
-            <input type="text" name="name" id="item-name">
+            <input type="text" name="name" id="item-name" required>
         </div>
 
         <div class="form-group">
             <label for="item-description">Item description:</label>
-            <input type="text" name="description" id="item-description">
+            <input type="text" name="description" id="item-description" required>
         </div>
          
         <div class="form-group">
             <label for="item-price">Item price:</label>
-            <input type="number" name="price" id="item-price">
+            <input type="number" name="price" id="item-price" required>
         </div>
 
         <div class="form-group">
             <label for="item-quantity">Item quantity:</label>
-            <input type="number" name="quantity" id="item-quantity">
+            <input type="number" name="quantity" id="item-quantity" required>
         </div>
       
         <input type="hidden" name="category_id" value="<%= category_id %>"> 
