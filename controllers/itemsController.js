@@ -44,7 +44,13 @@ async function deleteItem(req, res) {
   try{
     const {id} = req.params
     const {category_id} = req.body
-    await pool.query("UPDATE items SET quantity = quantity - 1 WHERE id = $1", [id])
+    const {rows} = await pool.query("SELECT quantity FROM items WHERE id = $1", [id])
+    const currentQuantity = rows[0].quantity
+    if(currentQuantity <= 0) {
+       const {rows} = await pool.query("DELETE FROM items WHERE id = $1", [id])
+    } else {
+      const {rows} = await pool.query("UPDATE items SET quantity = quantity - 1 WHERE id = $1", [id])
+    }
     res.redirect(`/categories/${category_id}`)
   } catch(err) {
     console.log("Something went wrong", err)
