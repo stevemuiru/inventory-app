@@ -31,14 +31,14 @@ INSERT INTO items (name, description, price, quantity, category_id) VALUES
 
 async function main () {
     const client = new Client ({
-        connectionString : "postgresql://madders@localhost/inventory_app"
+        connectionString: "postgresql://madders@localhost/inventory_app"
     })
 
     await client.connect()
     await client.query(SQL)
     await client.end()
 
-    console.log("Database populated succesfully")
+    console.log("Database populated successfully")
 }
 
 main()
